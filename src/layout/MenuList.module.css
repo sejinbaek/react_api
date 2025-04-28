@@ -1,0 +1,9 @@
+.active {
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+}
+
+.list {
+  text-align: center;
+  padding-top: 20px;
+}

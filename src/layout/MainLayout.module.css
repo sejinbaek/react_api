@@ -1,0 +1,19 @@
+.layout {
+  display: flex;
+  align-items: start;
+  gap: 1rem;
+  padding: 1rem;
+}
+.layout > * {
+  padding: 1rem;
+  border-radius: 8px;
+}
+.layout > ul {
+  width: 200px;
+  background-color: #1d5cda;
+  height: calc(100vh - 2rem); /* 스크롤이 안 생기는 방법으로 높이를 다 사용 */
+}
+.layout > main {
+  background-color: #f0f0f0;
+  flex: 1;
+}

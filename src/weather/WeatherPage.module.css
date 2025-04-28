@@ -1,0 +1,35 @@
+.weatherMain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.weatherInfo {
+  background-color: white;
+  max-width: 500px;
+  min-width: 300px;
+  min-height: 120px;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 1rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+.location {
+  font-size: 2rem;
+}
+.temperature {
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.btnList {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+.btnList button {
+}
