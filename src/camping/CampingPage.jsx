@@ -2,17 +2,23 @@ import React, { useState } from 'react'
 import { useCamping } from './useCampingApi'
 import css from './CampingPage.module.css'
 import DetailModal from './DetailModal'
+import Pagination from './Pagination'
+import { useSearchParams } from 'react-router-dom'
 
 const CampingPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [selected, setSelected] = useState(null)
-  const { data, isLoading, isError } = useCamping(1, 10)
+  const [searchParams, setSearchParams] = useSearchParams()
+
+  const page = Number(searchParams.get('page')) || 1
+  const perPage = Number(searchParams.get('perPage')) || 12
+
+  const { data, isLoading, isError } = useCamping(page, perPage)
+
   const campingData = data?.data
   const totalCount = data?.totalCount
-  const page = data?.page
-  const perPage = data?.perPage
 
-  console.log('캠핑 데이터', data)
+  //   console.log('캠핑 데이터', data)
 
   const handleCampingClick = list => {
     setIsModalOpen(true)
@@ -21,6 +27,10 @@ const CampingPage = () => {
 
   const handleCloseModal = () => {
     setIsModalOpen(false)
+  }
+
+  const handleChangePage = newpage => {
+    setSearchParams({ page: newpage, perPage })
   }
 
   isLoading && <div>Loading...</div>
@@ -45,6 +55,12 @@ const CampingPage = () => {
             </li>
           ))}
         </ul>
+        <Pagination
+          totalCount={totalCount}
+          page={page}
+          perPage={perPage}
+          handleChangePage={handleChangePage}
+        />
       </div>
       {isModalOpen && <DetailModal selected={selected} handleCloseModal={handleCloseModal} />}
     </main>

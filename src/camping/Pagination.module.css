@@ -1,0 +1,20 @@
+.paginationArea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+.paginationArea button {
+  padding: 0.25rem 0.5rem;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  border-radius: 4px;
+}
+
+button .active {
+  background-color: blue;
+}
