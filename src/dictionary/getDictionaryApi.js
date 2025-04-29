@@ -19,3 +19,13 @@ export const xmlAsJson = async q => {
     throw err
   }
 }
+
+export const getWordData = async q => {
+  try {
+    const res = await xmlAsJson(q)
+    return res
+  } catch (error) {
+    console.log(error)
+    throw err
+  }
+}
