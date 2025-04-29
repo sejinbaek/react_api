@@ -35,9 +35,9 @@ OpenWeatherMap API와 공공 데이터 포털 Camping API를 연동하여,
 <table>
 <tr>
   <td>
-    <img src="https://github.com/user-attachments/assets/1b810b3a-8fbc-4a89-9621-b2a67ef9addd" width="600"/>
-    <img src="https://github.com/user-attachments/assets/ce2c5b25-0929-4c1f-9ece-6c2bf44ff398" width="600"/>
+    <img src="https://github.com/user-attachments/assets/1b810b3a-8fbc-4a89-9621-b2a67ef9addd" width="450"/>
+    <img src="https://github.com/user-attachments/assets/ce2c5b25-0929-4c1f-9ece-6c2bf44ff398" width="450"/>
   </td>
 </tr>
-<tr><td><img src="https://github.com/user-attachments/assets/5c78f7f4-2b42-409a-9b59-9da671cf67e7" width="1200"/></td></tr>
+<tr><td><img src="https://github.com/user-attachments/assets/5c78f7f4-2b42-409a-9b59-9da671cf67e7" width="900"/></td></tr>
 </table>
