@@ -20,7 +20,7 @@ const MenuList = () => {
 }
 
 const CustomNavLink = ({ to, label }) => (
-  <li className={css.list}>
+  <li className={css.menuList}>
     <NavLink to={to} className={isActive => (isActive ? `${css.active}` : '')}>
       {label}
     </NavLink>
