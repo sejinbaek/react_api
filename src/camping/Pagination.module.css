@@ -7,14 +7,20 @@
 }
 
 .paginationArea button {
+  height: 30px;
   padding: 0.25rem 0.5rem;
   background-color: white;
-  display: flex;
-  align-items: center;
   text-align: center;
   border-radius: 4px;
+  cursor: pointer;
 }
 
-button .active {
-  background-color: blue;
+button:active {
+  background-color: rgb(13, 79, 171);
+  color: white;
+  transform: scale(0.95);
+}
+
+.active {
+  color: rgb(13, 79, 171);
 }
