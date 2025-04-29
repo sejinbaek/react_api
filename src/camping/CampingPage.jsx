@@ -36,8 +36,8 @@ const CampingPage = () => {
     setSearchParams({ page: newpage, perPage })
   }
 
-  isLoading && <div>Loading...</div>
-  isError && <div>Error</div>
+  if (isLoading) return <div>Loading...</div>
+  if (isError) return <div>Error...</div>
 
   return (
     <main>
