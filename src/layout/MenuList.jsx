@@ -15,6 +15,11 @@ const MenuList = () => {
         label={'야영장 API 활용'}
         className={isActive => (isActive ? `${css.active}` : '')}
       />
+      <CustomNavLink
+        to={'/dictionary'}
+        label={'사전 API 활용'}
+        className={isActive => (isActive ? `${css.active}` : '')}
+      />
     </ul>
   )
 }
