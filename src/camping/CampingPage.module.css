@@ -1,9 +1,10 @@
 .list {
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .list li {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   border-bottom: 1px dotted white;
   padding: 0.5rem 0;
