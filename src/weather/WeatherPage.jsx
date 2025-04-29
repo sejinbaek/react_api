@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import css from './WeatherPage.module.css'
-import { getCurrentWeather, getWeatherByCity } from './useWeatherApi'
+import { useWeather } from './useWeatherApi'
 import Button from './Button'
 import { useSearchParams } from 'react-router-dom'
 
 const WeatherPage = () => {
-  const [weatherData, setWeatherData] = useState(null)
   const [searchParams, setSearchParams] = useSearchParams()
   const city = searchParams.get('city')
 
@@ -16,23 +15,8 @@ const WeatherPage = () => {
     { id: 'rome', label: '로마' },
     { id: 'paris', label: '파리' },
   ]
-  useEffect(() => {
-    const fetchWeatherData = async () => {
-      try {
-        let data
-        {
-          city ? (data = await getWeatherByCity(city)) : (data = await getCurrentWeather())
-        }
-        console.log('날씨 데이터', data)
-        setWeatherData(data)
-      } catch (err) {
-        console.log('날씨 데이터 가져오기 실패', err)
-      }
-    }
-    fetchWeatherData()
-  }, [city])
 
-  console.log('날씨 데이터:', weatherData?.cod)
+  const { data: weatherData, isLoading, isError } = useWeather(city) // 컴포넌트가 마운트되면 항상 city 데이터가 생긴다.
 
   const handleChangeCity = city => {
     console.log('버튼 클릭', city)
@@ -40,6 +24,9 @@ const WeatherPage = () => {
       city === 'current' ? setSearchParams({}) : setSearchParams({ city })
     }
   }
+
+  isLoading && <div>Loading..</div>
+  isError && <div>Error...</div>
 
   return (
     <main className={css.weatherMain}>

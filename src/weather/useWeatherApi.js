@@ -1,3 +1,4 @@
+import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 
 // const url = `https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=${API_KEY}`
@@ -53,4 +54,22 @@ export const getWeatherByCity = async city => {
   } catch (err) {
     console.log('도시명으로 날씨 정보 가져오기 실패', err)
   }
+}
+
+// 리액트 쿼리에서 데이터를 가져오는 형태
+export const useWeather = city => {
+  console.log('useWeather', city)
+  return useQuery({
+    queryKey: ['weather', city],
+    queryFn: async () => {
+      try {
+        const data = city ? await getWeatherByCity(city) : await getCurrentWeather()
+        return data
+      } catch (err) {
+        console.log('err', err)
+      }
+    },
+    staleTime: 1000 * 60 * 5, //5분동안 fresh 상태 유지
+    retry: 1, // 실패 시 한 번만 재시도
+  })
 }
