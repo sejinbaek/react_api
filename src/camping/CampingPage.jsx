@@ -11,7 +11,7 @@ const CampingPage = () => {
   const [searchParams, setSearchParams] = useSearchParams()
 
   const page = Number(searchParams.get('page')) || 1
-  const perPage = Number(searchParams.get('perPage')) || 12
+  const perPage = Number(searchParams.get('perPage')) || 10
 
   const { data, isLoading, isError } = useCamping(page, perPage)
 
@@ -49,8 +49,9 @@ const CampingPage = () => {
               <p>야영장명: {list['야영장명']}</p>
               <p>주소: {list['주소']}</p>
               <p>
-                연락처:{' '}
-                {`${list['연락처 앞자리']}-${list['연락처 중간자리']}${list['연락처 끝자리'] ? `-${list['연락처 끝자리']}` : ''}`}
+                {list['연락처 앞자리']
+                  ? `연락처: ${list['연락처 앞자리']}-${list['연락처 중간자리']}${list['연락처 끝자리'] ? `-${list['연락처 끝자리']}` : ''}`
+                  : ''}
               </p>
             </li>
           ))}
