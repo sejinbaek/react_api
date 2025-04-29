@@ -1,17 +1,22 @@
 import React from 'react'
 import css from './Pagination.module.css'
 
-const Pagination = ({ totalCount, page, perPage, handleChangePage }) => {
+const Pagination = ({ totalCount = 0, page = 1, perPage = 10, handleChangePage }) => {
   // 총 페이지 수 (endPage 및 마지막 버튼에 이용)
   // Math.ceil을 사용해 소수점이 있으면 무조건 올림
   const totalPages = Math.ceil(totalCount / perPage)
+
+  if (totalPages === 0) {
+    return null // 페이지 수가 0이면 아예 페이지네이션 X
+  }
+
   // 한 번에 보여줄 페이지네이션 버튼 수를 구하는 함수
   const getpageNumbers = () => {
     // 한번에 보여주는 최대 페이지 수
     const maxpageNumbers = 10
     // 전체 페이지가 10보다 작으면 모든 페이지 번호 표시
     if (totalPages <= maxpageNumbers) {
-      return Array.from({ length: totalPages }, i => i + 1)
+      return Array.from({ length: totalPages }, (_, i) => i + 1)
     }
     // 페이지가 많을 경우
     // 현재 페이지를 가운데에 위치시키기 위해 왼쪽으로 5칸 이동
@@ -31,6 +36,7 @@ const Pagination = ({ totalCount, page, perPage, handleChangePage }) => {
         onClick={() => {
           handleChangePage(1)
         }}
+        disabled={page === 1}
       >
         처음
       </button>
@@ -65,6 +71,7 @@ const Pagination = ({ totalCount, page, perPage, handleChangePage }) => {
         onClick={() => {
           handleChangePage(totalPages)
         }}
+        disabled={page === totalPages}
       >
         마지막
       </button>
