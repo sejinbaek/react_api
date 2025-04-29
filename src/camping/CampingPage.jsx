@@ -15,20 +15,23 @@ const CampingPage = () => {
 
   const { data, isLoading, isError } = useCamping(page, perPage)
 
+  // 데이터를 가져오는 중에는 undefined이기 때문에 쿼리스크링으로 오류 방지
   const campingData = data?.data
   const totalCount = data?.totalCount
 
   //   console.log('캠핑 데이터', data)
 
+  // 모달 여는 함수
   const handleCampingClick = list => {
     setIsModalOpen(true)
     setSelected(list)
   }
-
+  // 모달 닫는 함수
   const handleCloseModal = () => {
     setIsModalOpen(false)
   }
 
+  // 페이지 이동 처리 함수
   const handleChangePage = newpage => {
     setSearchParams({ page: newpage, perPage })
   }

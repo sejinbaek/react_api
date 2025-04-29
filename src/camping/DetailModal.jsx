@@ -2,7 +2,7 @@ import React from 'react'
 import css from './DetailModal.module.css'
 
 const DetailModal = ({ selected, handleCloseModal }) => {
-  console.log('selected', selected)
+  // console.log('selected', selected)
   return (
     <div className={css.modal}>
       <div className={css.modalContent}>
