@@ -38,6 +38,7 @@ const Pagination = ({ totalCount, page, perPage, handleChangePage }) => {
         onClick={() => {
           handleChangePage(Math.max(1, page - 1))
         }}
+        disabled={page === 1}
       >
         이전
       </button>
@@ -56,6 +57,7 @@ const Pagination = ({ totalCount, page, perPage, handleChangePage }) => {
         onClick={() => {
           handleChangePage(Math.min(totalPages, page + 1))
         }}
+        disabled={page === totalPages}
       >
         다음
       </button>
