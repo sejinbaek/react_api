@@ -35,7 +35,7 @@ OpenWeatherMap API와 공공 데이터 포털 Camping API를 연동하여,
 <table>
   <tr>
     <td colspan="2" align="center">
-      <img src="https://github.com/user-attachments/assets/5c78f7f4-2b42-409a-9b59-9da671cf67e7" width="800"/>
+      <img src="https://github.com/user-attachments/assets/df149013-b90c-4303-be7a-365bc08d95fc" width="800"/>
     </td>
   </tr>
   <tr>
