@@ -69,7 +69,7 @@ export const useWeather = city => {
         console.log('err', err)
       }
     },
-    staleTime: 1000 * 60 * 5, //5분동안 fresh 상태 유지
+    staleTime: 1000 * 3, // fresh 상태 유지 시간
     retry: 1, // 실패 시 한 번만 재시도
   })
 }
